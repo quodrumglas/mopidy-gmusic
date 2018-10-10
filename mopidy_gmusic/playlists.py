@@ -22,6 +22,7 @@ class GMusicPlaylistsProvider(backend.PlaylistsProvider):
         self._playlists = {}
 
     def as_list(self):
+        self.refresh()
         refs = [
             Ref.playlist(uri=pl.uri, name=pl.name)
             for pl in self._playlists.values()]
